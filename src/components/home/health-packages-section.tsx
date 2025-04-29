@@ -71,9 +71,8 @@ export function HealthPackagesSection() {
                     <h3 className="text-xl font-bold text-[#002d52]">{pkg.title}</h3>
                   </div>
                   <p className="text-[#394756] mb-6">{pkg.description}</p>
-                  <Link to={"nos-garanties"}>
-                  <motion.a
-                    href={`/garanties/${pkg.id}`}
+                  <Link to={"nos-garanties"} aria-label="assuflex packs">
+                  <motion.span
                     className="inline-flex items-center text-[#0071cc] font-medium hover:underline"
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
@@ -88,7 +87,7 @@ export function HealthPackagesSection() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </motion.a>
+                  </motion.span>
                   </Link> 
                 </div>
               </motion.div>

@@ -35,29 +35,6 @@ export default function HeroSection() {
         },
         "-=0.4",
       )
-      .from(
-        ".hero-image",
-        {
-          scale: 0.9,
-          opacity: 0,
-          duration: 1,
-          ease: "power2.out",
-        },
-        "-=0.6",
-      )
-
-    if (heroRef.current) {
-      gsap.to(".hero-image", {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      })
-    }
   }, [])
 
   return (
