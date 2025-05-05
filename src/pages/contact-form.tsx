@@ -125,7 +125,7 @@ export default function ContactFormPage() {
   return (
     <>
     <Header></Header>
-    <div className="flex flex-col lg:flex-row min-h-screen bg-white">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-white mt-12">
       <div className="w-full lg:w-1/2 p-6 lg:p-12 flex justify-center items-center">
         <div className="w-full max-w-xl p-8 bg-[#f6fafe] rounded-lg">
           {isSubmitted ? (

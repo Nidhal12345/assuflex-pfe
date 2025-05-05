@@ -1,37 +1,38 @@
+"use client"
+
 import { ArrowRight } from "lucide-react"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel"
 import { Card, CardContent } from "../ui/card"
 import { AnimatedSection, AnimatedText } from "./animated-section"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom"
 
 const newsItems = [
   {
     id: 1,
     category: "Mutuelle Santé",
     title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "24.02.2025",
+    date: "24.02.2023",
     alt: "Health insurance consultation",
   },
   {
     id: 2,
     category: "Mutuelle Santé",
     title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "26.01.2025",
+    date: "26.01.2023",
     alt: "Medical consultation",
   },
   {
     id: 3,
     category: "Mutuelle Santé",
     title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "24.02.2025",
+    date: "24.02.2023",
     alt: "Family health coverage",
   },
   {
     id: 4,
     category: "Mutuelle Santé",
     title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "15.03.2025",
+    date: "15.03.2023",
     alt: "Healthcare professionals",
   },
   {
@@ -42,8 +43,6 @@ const newsItems = [
     alt: "Digital health services",
   },
 ]
-
-
 const placeholderImages = [
   "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop",
@@ -62,7 +61,7 @@ export function NewsSection() {
           </AnimatedText>
           <AnimatedText delay={0.3}>
             <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-              <Link to={"/actualites"} className="text-[#008859] flex items-center group">
+              <a href="/actualites" className="text-[#008859] flex items-center group">
                 Actualités
                 <motion.div
                   className="ml-1"
@@ -71,7 +70,7 @@ export function NewsSection() {
                 >
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </motion.div>
-              </Link>
+              </a>
             </motion.div>
           </AnimatedText>
         </div>
@@ -89,6 +88,7 @@ export function NewsSection() {
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.5 }}
                         >
+                          {/* Using a div with background image for better control over the image display */}
                           <div
                             className="w-full h-full bg-cover bg-center transition-transform duration-500"
                             style={{
@@ -96,6 +96,7 @@ export function NewsSection() {
                             }}
                           />
 
+                          {/* Overlay for better text readability if needed */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </motion.div>
                       </div>
@@ -111,10 +112,10 @@ export function NewsSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="absolute left-1 top-1/2 transform -translate-y-1/2">
+            <div className="absolute -left-4 hidden sm:block top-1/2 transform -translate-y-1/2">
               <CarouselPrevious className="bg-white text-[#002d52] border border-gray-200 shadow-md hover:bg-[#eef5f9] hover:text-[#008859] transition-colors duration-300" />
             </div>
-            <div className="absolute right-1 top-1/2 transform -translate-y-1/2">
+            <div className="absolute -right-4 top-1/2 hidden sm:block transform -translate-y-1/2">
               <CarouselNext className="bg-white text-[#002d52] border border-gray-200 shadow-md hover:bg-[#eef5f9] hover:text-[#008859] transition-colors duration-300" />
             </div>
           </Carousel>

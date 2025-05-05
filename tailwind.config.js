@@ -68,6 +68,8 @@ module.exports = {
     			},
     			assuflex: {
     				primary: '#F26522',
+					'button-primary': '#003E8A',
+					'button-secondary': '#FF6A00',
     				'primary-light': '#FF8A50',
     				'primary-dark': '#D14E0F',
     				secondary: '#003E7E',

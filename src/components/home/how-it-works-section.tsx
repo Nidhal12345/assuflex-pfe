@@ -1,63 +1,135 @@
-import { motion } from "framer-motion"
-import { ClipboardList, FileText, CheckCircle } from "lucide-react"
-import { AnimatedSection } from "./animated-section"
+import type React from "react"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-export function HowItWorksSection() {
+gsap.registerPlugin(ScrollTrigger)
+
+const HowItWorksSection: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const descriptionRef = useRef<HTMLParagraphElement>(null)
+  const stepsRef = useRef<HTMLDivElement[]>([])
+
+  const addToStepsRef = (el: HTMLDivElement) => {
+    if (el && !stepsRef.current.includes(el)) {
+      stepsRef.current.push(el)
+    }
+  }
+
+  useEffect(() => {
+    const section = sectionRef.current
+    const heading = headingRef.current
+    const description = descriptionRef.current
+    const steps = stepsRef.current
+
+    if (section && heading && description && steps.length) {
+      gsap.set([heading, description, ...steps], { autoAlpha: 0 })
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      })
+
+      tl.fromTo(heading, { y: 50, autoAlpha: 0 }, { duration: 0.8, y: 0, autoAlpha: 1, ease: "power3.out" })
+        .fromTo(
+          description,
+          { y: 30, autoAlpha: 0 },
+          { duration: 0.8, y: 0, autoAlpha: 1, ease: "power3.out" },
+          "-=0.4",
+        )
+        .fromTo(
+          steps,
+          { y: 50, autoAlpha: 0 },
+          {
+            duration: 0.8,
+            y: 0,
+            autoAlpha: 1,
+            stagger: 0.2,
+            ease: "power3.out",
+            onComplete: () => {
+              steps.forEach((step) => {
+                step.addEventListener("mouseenter", () => {
+                  gsap.to(step, {
+                    backgroundColor: "#e5e7eb",
+                    y: -8,
+                    scale: 1.03,
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+                    duration: 0.3,
+                    ease: "power2.out",
+                  })
+                })
+
+                step.addEventListener("mouseleave", () => {
+                  gsap.to(step, {
+                    backgroundColor: "#e2e8f0",
+                    y: 0,
+                    scale: 1,
+                    boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
+                    duration: 0.5,
+                    ease: "power2.out",
+                  })
+                })
+              })
+            },
+          },
+          "-=0.2",
+        )
+    }
+
+    return () => {
+      if (steps.length) {
+        steps.forEach((step) => {
+          step.removeEventListener("mouseenter", () => {})
+          step.removeEventListener("mouseleave", () => {})
+        })
+      }
+
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
+
   return (
-    <section className="py-16 bg-[#f1faff]">
-      <div className="container mx-auto px-4">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-[#002d52] mb-4">Comment ça marche</h2>
-          <p className="text-[#394756] max-w-2xl mx-auto">Obtenez votre mutuelle santé en 3 étapes simples</p>
-        </AnimatedSection>
+    <section ref={sectionRef} className="bg-[#f1faff] py-20 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="mt-6 mb-12">
+          <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold text-gray-900">
+          Comment ça marche
+            <br />
+          </h2>
+          <p ref={descriptionRef} className="mt-4 text-gray-600 max-w-xl">
+          Obtenez votre mutuelle santé en 3 étapes simples</p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <AnimatedSection delay={0.2}>
-            <motion.div
-              className="bg-white p-6 rounded-lg shadow-sm text-center h-full flex flex-col items-center"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-16 h-16 bg-[#e6f5ff] rounded-full flex items-center justify-center mb-4">
-                <ClipboardList className="h-8 w-8 text-[#0071cc]" />
-              </div>
-              <div className="text-4xl font-bold text-[#0071cc] mb-4">1</div>
-              <h3 className="text-xl font-bold text-[#002d52] mb-2">Remplissez votre profil</h3>
-              <p className="text-[#394756]">Quelques informations sur votre situation et vos besoins en santé</p>
-            </motion.div>
-          </AnimatedSection>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer">
+            <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">1 PAS</span>
+            <h3 className="text-xl font-bold mt-6 mb-4 text-gray-900">Remplissez votre profil</h3>
+            <p className="text-gray-600">
+            Quelques informations sur votre situation et vos besoins en santé
+            </p>
+          </div>
 
-          <AnimatedSection delay={0.4}>
-            <motion.div
-              className="bg-white p-6 rounded-lg shadow-sm text-center h-full flex flex-col items-center"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-16 h-16 bg-[#fff4e6] rounded-full flex items-center justify-center mb-4">
-                <FileText className="h-8 w-8 text-[#f25305]" />
-              </div>
-              <div className="text-4xl font-bold text-[#f25305] mb-4">2</div>
-              <h3 className="text-xl font-bold text-[#002d52] mb-2">Recevez une ou plusieurs offres</h3>
-              <p className="text-[#394756]">Comparez les garanties et tarifs des meilleures mutuelles du marché</p>
-            </motion.div>
-          </AnimatedSection>
+          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer">
+            <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">2 PAS</span>
+            <h3 className="text-xl font-bold mt-6 mb-4 text-gray-900">Recevez une ou plusieurs offres</h3>
+            <p className="text-gray-600">Comparez les garanties et tarifs des meilleures mutuelles du marché
+            </p>
+          </div>
 
-          <AnimatedSection delay={0.6}>
-            <motion.div
-              className="bg-white p-6 rounded-lg shadow-sm text-center h-full flex flex-col items-center"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="w-16 h-16 bg-[#e6fff0] rounded-full flex items-center justify-center mb-4">
-                <CheckCircle className="h-8 w-8 text-[#008859]" />
-              </div>
-              <div className="text-4xl font-bold text-[#008859] mb-4">3</div>
-              <h3 className="text-xl font-bold text-[#002d52] mb-2">Souscrivez en ligne ou avec un conseiller</h3>
-              <p className="text-[#394756]">Finalisez votre contrat en quelques clics ou avec l'aide d'un expert</p>
-            </motion.div>
-          </AnimatedSection>
+          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer">
+            <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">3 PAS</span>
+            <h3 className="text-xl font-bold mt-6 mb-4 text-gray-900">Souscrivez en ligne ou avec un conseiller</h3>
+            <p className="text-gray-600">Finalisez votre contrat en quelques clics ou avec l'aide d'un expert
+            </p>
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
+export default HowItWorksSection;

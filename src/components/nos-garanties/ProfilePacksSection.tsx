@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Shield, Users, Leaf, Briefcase, Building2, Check } from "lucide-react"
+import { Link } from "react-router-dom"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -346,7 +347,7 @@ export default function ProfilePacksSection() {
         </CardContent>
         <CardFooter className="flex justify-center border-t pt-6">
           <Button size="lg" className="animate-item bg-gradient-to-r from-[#FF623E] via-[#FF623E] to-[#FF971B] text-white hover:opacity-90">
-            {isEnterprise ? "Demander un devis entreprise" : "Obtenir un devis personnalisé"}
+           <Link to={"/insurance"}>  {isEnterprise ? "Demander un devis entreprise" : "Obtenir un devis personnalisé"}           </Link>
           </Button>
         </CardFooter>
       </Card>

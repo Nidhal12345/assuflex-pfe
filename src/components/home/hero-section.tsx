@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
-import { Button } from "@/components/ui/button"
-import { ChevronRight } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -40,7 +39,7 @@ export default function HeroSection() {
   return (
     <div
       ref={heroRef}
-      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden bg-gradient-to-br from-white via-gray-50 to-blue-50"
+      className="relative pt-32 flex items-center pb-16"
     >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -55,11 +54,18 @@ export default function HeroSection() {
               Protégez ce qui compte vraiment avec nos solutions personnalisées pour chaque profil et situation
             </p>
             <div className="hero-button flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-[#FF623E] via-[#FF623E] to-[#FF971B] text-white hover:opacity-90">
-                Demander un devis gratuit
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
+          <Link to={"/insurance"}
+            className="bg-[#FF6A00] hover:bg-[#E65C00] text-white rounded-full py-3 px-6 text-lg font-medium transition-colors duration-200"
+          >
+            Demandez votre devis gratuit
+          </Link>
+          <Link
+            to={"/nos-garanties"}
+            className="bg-[#003E8A] hover:bg-[#002F6C] text-white rounded-full py-3 px-6 text-lg font-medium transition-colors duration-200"
+          >
+            Découvrez nos assurances
+          </Link>
+        </div>
           </div>
         </div>
       </div>

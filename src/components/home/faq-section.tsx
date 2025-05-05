@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, Heart } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { AnimatedSection } from "./animated-section"
 
 type FAQItem = {
@@ -125,21 +125,6 @@ export function FAQSection() {
               </AnimatedSection>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <AnimatedSection>
-            <p className="text-[#394756] mb-4">Vous ne trouvez pas la réponse à votre question ?</p>
-            <motion.a
-              href="/contact"
-              className="inline-flex items-center bg-[#0288d1] hover:bg-[#0071cc] text-white px-6 py-3 rounded-md transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contactez-nous
-              <Heart className="ml-2 h-4 w-4" />
-            </motion.a>
-          </AnimatedSection>
         </div>
       </div>
     </section>
