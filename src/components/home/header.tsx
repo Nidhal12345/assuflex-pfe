@@ -60,7 +60,11 @@ const NavLinks = memo(({ mobile = false }: { mobile?: boolean }) => {
             mobile ? "text-gray-800 border-b pb-2 hover:text-[#f25305]" : "text-black hover:text-[#f25305]"
           }`}
         >
-          {link.label}
+          {link.label === "Nos garanties" ? (
+            <span translate="no">Nos garanties</span>
+          ) : (
+            link.label
+          )}
         </Link>
       ))}
       {mobile && (

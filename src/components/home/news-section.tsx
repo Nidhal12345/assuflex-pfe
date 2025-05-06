@@ -5,49 +5,43 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "../ui/card"
 import { AnimatedSection, AnimatedText } from "./animated-section"
 import { motion } from "framer-motion"
-
 const newsItems = [
   {
     id: 1,
     category: "Mutuelle Santé",
-    title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "24.02.2023",
-    alt: "Health insurance consultation",
+    title: "Le tiers payant généralisé : ce qui change en 2025",
+    date: "24.02.2025",
+    alt: "Tiers payant et nouvelles règles",
   },
   {
     id: 2,
     category: "Mutuelle Santé",
-    title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "26.01.2023",
-    alt: "Medical consultation",
+    title: "Remboursement des lunettes : quelles sont les nouvelles conditions ?",
+    date: "26.01.2025",
+    alt: "Remboursement lunettes",
   },
   {
     id: 3,
     category: "Mutuelle Santé",
-    title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "24.02.2023",
-    alt: "Family health coverage",
+    title: "Mutuelle santé : comment bien choisir selon son profil ?",
+    date: "15.03.2025",
+    alt: "Choisir sa mutuelle",
   },
   {
     id: 4,
     category: "Mutuelle Santé",
-    title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
-    date: "15.03.2023",
-    alt: "Healthcare professionals",
-  },
-  {
-    id: 5,
-    category: "Mutuelle Santé",
-    title: "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et.",
+    title: "Assuflex lance une nouvelle offre dédiée aux travailleurs indépendants",
     date: "10.04.2025",
-    alt: "Digital health services",
+    alt: "Offre mutuelle TNS",
   },
+
 ]
+
+
 const placeholderImages = [
   "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=800&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=800&auto=format&fit=crop",
 ]
 
