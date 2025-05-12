@@ -1,7 +1,7 @@
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Header } from "../components/home/header"
-import Footer from "../components/shared/footer"
+import Footer from "../components/shared/Footer"
 import HeroSection from "../components/nos-garanties/HeroSection"
 import WhyChooseSection from "../components/nos-garanties/WhyChooseSection"
 import ProfilePacksSection from "../components/nos-garanties/ProfilePacksSection"

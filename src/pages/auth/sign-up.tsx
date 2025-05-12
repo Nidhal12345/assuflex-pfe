@@ -29,7 +29,7 @@ function SignUp() {
       name: "",
       email: "",
       password: "",
-      terms: false,
+      terms: true,
     },
   })
 

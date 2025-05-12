@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { gsap } from "gsap"
 import { Loader2 } from "lucide-react"
-import Footer from "@/components/shared/footer"
+import Footer from "@/components/shared/Footer"
 
 export default function ContactFormPage() {
   const [formData, setFormData] = useState({

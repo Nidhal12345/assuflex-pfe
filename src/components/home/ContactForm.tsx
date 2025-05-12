@@ -10,14 +10,13 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 
-// Schéma de validation Zod
+// ✅ Schéma de validation mis à jour
 const formSchema = z.object({
   fullName: z.string().min(1, "Nom et prénom requis"),
   email: z.string().email("Email invalide"),
   phoneNumber: z.string().min(1, "Téléphone requis"),
   subject: z.string().optional(),
-  callbackDate: z.string().optional(),
-  callbackSlot: z.enum(["matin", "apres-midi", "soir"]).optional(),
+  callbackDateTime: z.string().optional(), // ⬅️ Nouveau champ
   message: z.string().optional(),
   rgpd: z.literal(true, { errorMap: () => ({ message: "Vous devez accepter" }) }),
 })
@@ -99,32 +98,15 @@ export default function ContactForm() {
           </Select>
         </div>
 
-        {/* Date */}
+        {/* ✅ Date et heure souhaitées */}
         <div className="sm:col-span-2">
-          <Label htmlFor="callbackDate">Date de rappel souhaitée</Label>
-          <Input id="callbackDate" type="date" {...register("callbackDate")} className="mt-2" />
-        </div>
-
-        {/* Créneau */}
-        <div className="sm:col-span-2">
-          <Label htmlFor="callbackSlot">Créneau</Label>
-          <div className="mt-2 flex gap-4">
-            {[
-              { value: "matin", label: "Matin" },
-              { value: "apres-midi", label: "Après-midi" },
-              { value: "soir", label: "Soir" },
-            ].map((slot) => (
-              <label key={slot.value} className="inline-flex items-center">
-                <input
-                  type="radio"
-                  value={slot.value}
-                  {...register("callbackSlot")}
-                  className="h-4 w-4 text-indigo-600"
-                />
-                <span className="ml-2 capitalize text-slate-700">{slot.label}</span>
-              </label>
-            ))}
-          </div>
+          <Label htmlFor="callbackDateTime">Date et heure de rappel souhaitées</Label>
+          <Input
+            id="callbackDateTime"
+            type="datetime-local"
+            {...register("callbackDateTime")}
+            className="mt-2"
+          />
         </div>
 
         {/* Message */}
@@ -142,7 +124,7 @@ export default function ContactForm() {
           {errors.rgpd && <p className="text-sm text-red-600 ml-auto">{errors.rgpd.message}</p>}
         </div>
 
-        {/* Bouton */}
+        {/* Bouton d'envoi */}
         <div className="sm:col-span-2">
           <Button
             type="submit"

@@ -6,7 +6,7 @@ import LoginForm from "./pages/auth/login-form"
 import SignUp from "./pages/auth/sign-up"
 import  InsuranceOffres  from "./pages/insuranceOffres"
 import  ContactForm  from "./pages/contact-form"
-
+import "react-datepicker/dist/react-datepicker.css"
 export default function App() {
   
   return (

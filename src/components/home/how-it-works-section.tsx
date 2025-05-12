@@ -2,6 +2,7 @@ import type React from "react"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { FileText, MailOpen, CheckCircle } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -97,33 +98,35 @@ const HowItWorksSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="mt-6 mb-12">
           <h2 ref={headingRef} className="text-4xl md:text-5xl font-bold text-gray-900">
-          Comment ça marche
-            <br />
+            Comment ça marche
           </h2>
           <p ref={descriptionRef} className="mt-4 text-gray-600 max-w-xl">
-          Obtenez votre mutuelle santé en 3 étapes simples</p>
+            Obtenez votre mutuelle santé en 3 étapes simples
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer">
-            <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">1 PAS</span>
-            <h3 className="text-xl font-bold mt-6 mb-4 text-gray-900">Remplissez votre profil</h3>
+          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer transition-all">
+            <FileText className="w-10 h-10 text-blue-600 mb-4" />
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Remplissez votre profil</h3>
             <p className="text-gray-600">
-            Quelques informations sur votre situation et vos besoins en santé
+              Quelques informations sur votre situation et vos besoins en santé
             </p>
           </div>
 
-          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer">
-            <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">2 PAS</span>
-            <h3 className="text-xl font-bold mt-6 mb-4 text-gray-900">Recevez une ou plusieurs offres</h3>
-            <p className="text-gray-600">Comparez les garanties et tarifs des meilleures mutuelles du marché
+          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer transition-all">
+            <MailOpen className="w-10 h-10 text-orange-500 mb-4" />
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Recevez des offres personnalisées</h3>
+            <p className="text-gray-600">
+              Comparez les garanties et tarifs des meilleures mutuelles du marché
             </p>
           </div>
 
-          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer">
-            <span className="text-xs uppercase tracking-wider text-gray-500 font-medium">3 PAS</span>
-            <h3 className="text-xl font-bold mt-6 mb-4 text-gray-900">Souscrivez en ligne ou avec un conseiller</h3>
-            <p className="text-gray-600">Finalisez votre contrat en quelques clics ou avec l'aide d'un expert
+          <div ref={addToStepsRef} className="bg-gray-200 p-8 rounded-lg cursor-pointer transition-all">
+            <CheckCircle className="w-10 h-10 text-green-600 mb-4" />
+            <h3 className="text-xl font-bold mb-4 text-gray-900">Souscrivez simplement</h3>
+            <p className="text-gray-600">
+              Finalisez votre contrat en ligne ou avec l'aide d'un conseiller
             </p>
           </div>
         </div>
@@ -132,4 +135,4 @@ const HowItWorksSection: React.FC = () => {
   )
 }
 
-export default HowItWorksSection;
+export default HowItWorksSection

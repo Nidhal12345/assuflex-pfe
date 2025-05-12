@@ -15,7 +15,7 @@ export function AccountSection() {
           </div>
         <div className="space-y-6">
           <AnimatedText delay={0.3}>
-            <h2 className="text-[#002d52] text-3xl font-bold">Vous assurer par cœur</h2>
+            <h2 className="text-[#002d52] text-3xl font-bold">Vous assurez par cœur</h2>
           </AnimatedText>
           <AnimatedText delay={0.4}>
             <p className="text-[#394756] font-medium">Chez Assuflex, vous gérez votre contrat en toute simplicité</p>
@@ -35,7 +35,7 @@ export function AccountSection() {
             <motion.div whileHover={{ scale: 1.05, x: 5 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to={"/login"}
-                className="bg-[#0288d1] hover:bg-[#0071cc] text-white px-6 py-3 rounded-md inline-flex items-center transition-colors duration-300"
+                className="bg-[#003E8A] hover:bg-[#002F6C] text-white px-6 py-3 rounded-md inline-flex items-center transition-colors duration-300"
               >
                 Je me connecte à mon espace
                 <motion.div

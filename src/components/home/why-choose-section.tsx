@@ -59,7 +59,7 @@ export function WhyChooseSection() {
   }, []);
 
   return (
-    <section className="w-full bg-[#b9e6ff] py-8 md:py-14 lg:py-20 overflow-hidden">
+    <section className="w-full bg-[#fef9f8] py-8 md:py-14 lg:py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-center mb-8 sm:mb-12 md:mb-14 text-[#18194f]">
           Pourquoi choisir<span className="text-[#FF6A00]">ASSU</span><span className="text-[#003E8A]">FLEX</span> ?

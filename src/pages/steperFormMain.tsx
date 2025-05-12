@@ -70,7 +70,7 @@ function steperFormMain() {
   const Navigate = useNavigate()
   const [currentStep, setCurrentStep] = useState(0)
   const [formData, setFormData] = useState<FormData>(initialFormData)
-  const [direction, setDirection] = useState(0)
+  const [, setDirection] = useState(0)
 
   const totalSteps = 4
 

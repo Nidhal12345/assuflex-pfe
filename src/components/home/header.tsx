@@ -57,31 +57,22 @@ const NavLinks = memo(({ mobile = false }: { mobile?: boolean }) => {
           key={link.to}
           to={link.to}
           className={`text-base font-medium transition-colors duration-300 ${
-            mobile ? "text-gray-800 border-b pb-2 hover:text-[#f25305]" : "text-black hover:text-[#f25305]"
+            mobile ? "text-[#003E8A] border-b pb-2 hover:text-[#003E8A]" : "text-[#003E8A] hover:text-[#003E8A]"
           }`}
+          
         >
-          {link.label === "Nos garanties" ? (
-            <span translate="no">Nos garanties</span>
-          ) : (
-            link.label
-          )}
+          {link.label === "Nos garanties" ? <span translate="no">Nos garanties</span> : link.label}
         </Link>
       ))}
       {mobile && (
         <>
           <Link to="/login" className="mt-4">
-            <Button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-full py-3 px-6 text-lg font-medium"
-            >
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-full py-2 px-6 text-base font-medium">
               Espace Client
             </Button>
           </Link>
           <Link to="/insurance" className="mt-4">
-            <Button
-              size="lg"
-              className="bg-[#FF6A00] hover:bg-[#E65C00] text-white rounded-full w-full py-3 px-6 text-lg font-medium"
-            >
+            <Button className="bg-[#FF6A00] hover:bg-[#E65C00] text-white rounded-full w-full py-2 px-6 text-base font-medium">
               Devis immédiat
             </Button>
           </Link>
@@ -148,7 +139,7 @@ export function Header() {
         </div>
       </div>
 
-      <header className="bg-white sticky top-0 z-50 w-full shadow-sm">
+      <header className="bg-[#fef9f8] sticky top-0 z-50 w-full shadow-sm">
         <div ref={mainNavRef} className="py-3 px-4 md:px-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
@@ -181,12 +172,12 @@ export function Header() {
 
             <div className="flex items-center gap-3">
               <Link to="/insurance">
-                <Button className="bg-[#FF6A00] hover:bg-[#E65C00] text-white rounded-full px-6 py-3 text-lg font-medium">
+                <Button className="bg-[#FF6A00] hover:bg-[#E65C00] text-white rounded-full px-6 py-2 text-base font-medium">
                   Devis immédiat
                 </Button>
               </Link>
               <Link to="/login" className="hidden lg:block">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-3 text-lg font-medium">
+                <Button className="bg-[#003E8A] hover:bg-[#002F6C]  text-white rounded-full px-6 py-2 text-base font-medium">
                   Espace Client
                 </Button>
               </Link>
@@ -197,4 +188,3 @@ export function Header() {
     </>
   )
 }
-// 

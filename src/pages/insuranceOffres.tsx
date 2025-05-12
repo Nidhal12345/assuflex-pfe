@@ -1,7 +1,7 @@
 import type React from "react"
 import { useState } from "react"
 import { Header } from "../components/home/header"
-import Footer from "../components/shared/footer"
+import Footer from "../components/shared/Footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -204,7 +204,7 @@ function CoverageOption({
 }
 
 function RecommendationCard({
-  id,
+  
   level,
   soinsCourantsLevel,
   dentaireLevel,

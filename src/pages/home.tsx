@@ -12,7 +12,7 @@ import { TestimonialsSection } from "../components/home/testimonials-section"
 import { CallToActionSection } from "../components/home/call-to-action-section"
 import { NewsSection } from "../components/home/news-section"
 import { FAQSection } from "../components/home/faq-section"
-import Footer from "../components/shared/footer"
+import Footer from "../components/shared/Footer"
 
 function Home() {
   const [loading, setLoading] = useState(true)
@@ -38,15 +38,15 @@ function Home() {
       <Header />
       <main>
         <HeroSection />
-        <AccountSection />
         <WhyChooseSection />
+        <AccountSection />
         <HowItWorksSection />
         <NewsSection />
         <HealthPackagesSection />
         <TestimonialsSection />
         <CallToActionSection />
         <FAQSection />
-        <ContactForm />
+        {/* <ContactForm /> */}
       </main>
       <Footer />
     </>
